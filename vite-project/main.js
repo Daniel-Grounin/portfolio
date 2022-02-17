@@ -11,7 +11,7 @@ const scene = new THREE.Scene();
 //camera describes where the camera is, what it's looking at, and how it's oriented
 //what the human eye sees
 //first argument is the field of view, second is aspect ratio(based on user browser window), the last is to control how the object is visible
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg')
@@ -66,19 +66,15 @@ scene.background = spaceTexture;
 
 //avatar
 const DanielTexture = new THREE.TextureLoader().load('human.jpg');
-
 const Daniel = new THREE.Mesh(
   new THREE.BoxGeometry(0.25,0.25,0.25),
   new THREE.MeshBasicMaterial({map:DanielTexture})
 );
-
 scene.add(Daniel);
 
 //moon 
-
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('moonnormal.jpg');
-
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3,32,32),
   new THREE.MeshStandardMaterial({
@@ -86,12 +82,10 @@ const moon = new THREE.Mesh(
     normalMap:normalTexture,
   })
 );
-
 scene.add(moon);
 
 //mars 
 const marsTexture = new THREE.TextureLoader().load('mars.jpg');
-
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(3,32,32),
   new THREE.MeshStandardMaterial({
@@ -99,13 +93,10 @@ const mars = new THREE.Mesh(
     
   })
 );
-
 scene.add(mars);
-
 
 //neptune 
 const neptuneTexture = new THREE.TextureLoader().load('neptune.jpg');
-
 const neptune = new THREE.Mesh(
   new THREE.SphereGeometry(3,32,32),
   new THREE.MeshStandardMaterial({
@@ -113,12 +104,10 @@ const neptune = new THREE.Mesh(
     
   })
 );
-
 scene.add(neptune);
 
 //uranus 
 const uranusTexture = new THREE.TextureLoader().load('uranus.jpg');
-
 const uranus  = new THREE.Mesh(
   new THREE.SphereGeometry(3,32,32),
   new THREE.MeshStandardMaterial({
@@ -126,38 +115,67 @@ const uranus  = new THREE.Mesh(
     
   })
 );
-
 scene.add(uranus);
 
-moon.position.z  = 10;
-moon.position.setX(-5);
+//earth
+const earthTexture = new THREE.TextureLoader().load('earth.jpg');
+const earth  = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:earthTexture,
+    
+  })
+);
+scene.add(earth);
+
+moon.position.z  = 3;
+moon.position.setX(-10);
 
 mars.position.z  = 30;
 mars.position.setX(-10);
+mars.position.setY(5);
+mars.position.setZ(-50);
 
-neptune.position.y  = -5;
-neptune.position.setY(15);
+neptune.position.y  = 5;
+neptune.position.setX(15);
+neptune.position.setY(-10);
+neptune.position.setZ(-30);
 
 uranus.position.y  = 20;
-uranus.position.setX(25);
+uranus.position.setX(5);
+uranus.position.setY(5);
+uranus.position.setZ(8);
+
+earth.position.y  = 10;
+earth.position.setX(-10);
+earth.position.setY(-8);
+earth.position.setZ(-50);
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
-  moon.rotation.x +=0.05;
-  moon.rotation.y +=0.075;
-  moon.rotation.z +=0.05;
+  moon.rotation.x -=0.01;
+  moon.rotation.y +=0.01;
+  moon.rotation.z +=0.01;
 
-  mars.rotation.x +=0.08;
-  mars.rotation.y -=0.075;
-  mars.rotation.z +=0.05;
+  mars.rotation.x -=0.01;
+  mars.rotation.y -=0.01;
+  mars.rotation.z +=0.01;
 
-  neptune.rotation.x +=0.08;
-  neptune.rotation.y -=0.075;
-  neptune.rotation.z +=0.05;
+  neptune.rotation.x +=0.01;
+  neptune.rotation.y -=0.01;
+  neptune.rotation.z +=0.01;
 
-  uranus.rotation.x +=0.08;
-  uranus.rotation.y -=0.075;
-  uranus.rotation.z +=0.05;
+  uranus.rotation.x +=0.01;
+  uranus.rotation.y -=0.01;
+  uranus.rotation.z +=0.01;
+
+  uranus.rotation.x +=0.01;
+  uranus.rotation.y -=0.01;
+  uranus.rotation.z +=0.01;
+
+  earth.rotation.x +=0.01;
+  earth.rotation.y -=0.01;
+  earth.rotation.z +=0.01;
 
   Daniel.rotation.x += 0.01;
   Daniel.rotation.z += 0.01;
