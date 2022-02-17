@@ -23,12 +23,12 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
-const geometry = new THREE.TorusGeometry(1, 0.5, 16, 100);
+const geometry = new THREE.TorusGeometry(10, 2, 16, 50);
 const marerial = new THREE.MeshStandardMaterial({color:0x888aa119})
-const torusTexture = new THREE.TextureLoader().load('venus.jpg');
+const torusTexture = new THREE.TextureLoader().load('satrunring.jpg');
 
 const torus = new THREE.Mesh(
-  new THREE.TorusGeometry(1, 0.5, 16, 100),
+  new THREE.TorusGeometry(1, 0.05, 16, 100),
   new THREE.MeshStandardMaterial({
     map:torusTexture,
   })
@@ -43,7 +43,7 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(pointLight, ambientLight);
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200,20);
+const gridHelper = new THREE.GridHelper(100,1);
 scene.add(lightHelper,gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -128,6 +128,19 @@ const earth  = new THREE.Mesh(
 );
 scene.add(earth);
 
+
+
+//sun
+const sunTexture = new THREE.TextureLoader().load('sun.jpg');
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:sunTexture,
+    
+  })
+);
+scene.add(sun);
+
 moon.position.z  = 3;
 moon.position.setX(-10);
 
@@ -150,6 +163,11 @@ earth.position.y  = 10;
 earth.position.setX(-10);
 earth.position.setY(-8);
 earth.position.setZ(-50);
+
+sun.position.y  = 5;
+sun.position.setX(30);
+sun.position.setY(10);
+sun.position.setZ(-80);
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
