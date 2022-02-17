@@ -23,9 +23,16 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
-const geometry = new THREE.TorusGeometry(10,3,16,100)
+const geometry = new THREE.TorusGeometry(1, 0.5, 16, 100);
 const marerial = new THREE.MeshStandardMaterial({color:0x888aa119})
-const torus = new THREE.Mesh(geometry, marerial)
+const torusTexture = new THREE.TextureLoader().load('venus.jpg');
+
+const torus = new THREE.Mesh(
+  new THREE.TorusGeometry(1, 0.5, 16, 100),
+  new THREE.MeshStandardMaterial({
+    map:torusTexture,
+  })
+);
 
 scene.add(torus)
 
@@ -61,7 +68,7 @@ scene.background = spaceTexture;
 const DanielTexture = new THREE.TextureLoader().load('human.jpg');
 
 const Daniel = new THREE.Mesh(
-  new THREE.BoxGeometry(1,1,1),
+  new THREE.BoxGeometry(0.25,0.25,0.25),
   new THREE.MeshBasicMaterial({map:DanielTexture})
 );
 
@@ -82,14 +89,75 @@ const moon = new THREE.Mesh(
 
 scene.add(moon);
 
-moon.position.z  = 30;
-moon.position.setX(-10);
+//mars 
+const marsTexture = new THREE.TextureLoader().load('mars.jpg');
+
+const mars = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:marsTexture,
+    
+  })
+);
+
+scene.add(mars);
+
+
+//neptune 
+const neptuneTexture = new THREE.TextureLoader().load('neptune.jpg');
+
+const neptune = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:neptuneTexture,
+    
+  })
+);
+
+scene.add(neptune);
+
+//uranus 
+const uranusTexture = new THREE.TextureLoader().load('uranus.jpg');
+
+const uranus  = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:uranusTexture,
+    
+  })
+);
+
+scene.add(uranus);
+
+moon.position.z  = 10;
+moon.position.setX(-5);
+
+mars.position.z  = 30;
+mars.position.setX(-10);
+
+neptune.position.y  = -5;
+neptune.position.setY(15);
+
+uranus.position.y  = 20;
+uranus.position.setX(25);
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
   moon.rotation.x +=0.05;
   moon.rotation.y +=0.075;
   moon.rotation.z +=0.05;
+
+  mars.rotation.x +=0.08;
+  mars.rotation.y -=0.075;
+  mars.rotation.z +=0.05;
+
+  neptune.rotation.x +=0.08;
+  neptune.rotation.y -=0.075;
+  neptune.rotation.z +=0.05;
+
+  uranus.rotation.x +=0.08;
+  uranus.rotation.y -=0.075;
+  uranus.rotation.z +=0.05;
 
   Daniel.rotation.x += 0.01;
   Daniel.rotation.z += 0.01;
