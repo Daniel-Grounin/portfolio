@@ -11,7 +11,7 @@ const scene = new THREE.Scene();
 //camera describes where the camera is, what it's looking at, and how it's oriented
 //what the human eye sees
 //first argument is the field of view, second is aspect ratio(based on user browser window), the last is to control how the object is visible
-const camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(30, window.innerWidth/window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg')
@@ -25,7 +25,7 @@ renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 2, 16, 50);
 const marerial = new THREE.MeshStandardMaterial({color:0x888aa119})
-const torusTexture = new THREE.TextureLoader().load('satrunring.jpg');
+const torusTexture = new THREE.TextureLoader().load('golden.jpg');
 
 const torus = new THREE.Mesh(
   new THREE.TorusGeometry(1, 0.05, 16, 100),
@@ -194,6 +194,10 @@ function moveCamera(){
   earth.rotation.x +=0.01;
   earth.rotation.y -=0.01;
   earth.rotation.z +=0.01;
+
+  sun.rotation.x +=0.01;
+  sun.rotation.y -=0.01;
+  sun.rotation.z +=0.01;
 
   Daniel.rotation.x += 0.01;
   Daniel.rotation.z += 0.01;
