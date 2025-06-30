@@ -1,12 +1,13 @@
 import { ArrowDown } from "lucide-react";
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import myPhoto from "../assets/me.png";
 
 const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 mb-5"
     >
       {/* -------- hero content -------- */}
       <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between gap-10 z-10">
@@ -36,7 +37,7 @@ const HeroSection = () => {
         {/* image block */}
         <div className="md:basis-1/2 flex flex-col items-center gap-6">
           <img
-            src="/assets/me.png"
+            src={myPhoto}
             alt="Daniel Grounin"
             className="w-64 md:w-80 lg:w-96 object-cover rounded-lg insta-purple"
           />
