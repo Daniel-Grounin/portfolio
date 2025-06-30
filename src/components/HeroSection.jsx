@@ -36,7 +36,7 @@ const HeroSection = () => {
         {/* image block */}
         <div className="md:basis-1/2 flex flex-col items-center gap-6">
           <img
-            src="/public/me.png"
+            src="/assets/me.png"
             alt="Daniel Grounin"
             className="w-64 md:w-80 lg:w-96 object-cover rounded-lg insta-purple"
           />
