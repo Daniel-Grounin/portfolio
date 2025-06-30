@@ -7,10 +7,10 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 mb-2"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 "
     >
       {/* -------- hero content -------- */}
-      <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between gap-10 z-10">
+      <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between gap-10 z-10 mb-10">
         {/* text block */}
         <div className="space-y-6 text-center md:text-left md:basis-1/2 ">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -35,7 +35,7 @@ const HeroSection = () => {
         </div>
 
         {/* image block */}
-        <div className="md:basis-1/2 flex flex-col items-center gap-6 mb-2">
+        <div className="md:basis-1/2 flex flex-col items-center gap-6 ">
           <img
             src={myPhoto}
             alt="Daniel Grounin"
@@ -45,7 +45,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Row */}
-      <div className="space-y-8 mb-4">
+      <div className="space-y-8 mb-10">
         {/* Contact row */}
         <div className="flex justify-center gap-8 py-6">
           {/* Email */}
