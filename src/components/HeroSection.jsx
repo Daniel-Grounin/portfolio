@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import myPhoto from "../assets/me.png"; // adjust path as needed
 
 const HeroSection = () => {
   return (
@@ -36,7 +37,7 @@ const HeroSection = () => {
         {/* image block */}
         <div className="md:basis-1/2 flex flex-col items-center gap-6 mt-10">
           <img
-            src="/public/me.png"
+            src={myPhoto}
             alt="Daniel Grounin"
             className="w-64 md:w-80 lg:w-96 object-cover rounded-lg insta-purple"
           />
