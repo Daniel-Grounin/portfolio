@@ -9,7 +9,7 @@ const skills = [
   { name: "Python", icon: "python", category: "languages" },
   { name: "Java", icon: "java", category: "languages" },
   { name: "JavaScript", icon: "js", category: "languages" },
-  { name: "C / C++", icon: "c++", category: "languages" },
+  { name: "C/C++", icon: "c++", category: "languages" },
   { name: "Bash", icon: "bash", category: "languages" },
 
   /* — Front-end — */
@@ -57,7 +57,7 @@ const SkillsSection = () => {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
-                "px-5 py-2 rounded-full capitalize transition-colors",
+                "px-3 py-1 rounded-full capitalize transition-colors",
                 activeCategory === cat
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
@@ -69,18 +69,18 @@ const SkillsSection = () => {
         </div>
 
         {/* responsive grid */}
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-4 lg:grid-cols-6 gap-6 lg:mx-auto">
           {filtered.map((skill) => (
             <div
               key={skill.name}
               className="bg-card p-4 rounded-lg shadow-xs card-hover
-                         flex flex-col items-center gap-2"
+                         flex flex-col items-center gap-2 "
             >
               {/* icon or fallback initial */}
               {skill.icon ? (
                 <StackIcon name={skill.icon} size={30} />
               ) : (
-                <div className="w-12 h-12 rounded bg-secondary flex items-center justify-center">
+                <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center">
                   <span className="text-sm font-medium">{skill.name[0]}</span>
                 </div>
               )}

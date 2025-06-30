@@ -105,7 +105,7 @@ const ProjectsSection = () => {
         <div className="text-center mt-12">
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Daniel-Grounin"
             target="_blank"
             rel="noopener noreferrer"
           >
