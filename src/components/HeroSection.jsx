@@ -1,20 +1,19 @@
 import { ArrowDown } from "lucide-react";
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import myPhoto from "../assets/me.png";
 
 const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 mb-2"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
       {/* -------- hero content -------- */}
       <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between gap-10 z-10">
         {/* text block */}
         <div className="space-y-6 text-center md:text-left md:basis-1/2 ">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
+            <span className=" opacity-0 animate-fade-in">Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" Daniel"}
             </span>
@@ -35,9 +34,9 @@ const HeroSection = () => {
         </div>
 
         {/* image block */}
-        <div className="md:basis-1/2 flex flex-col items-center gap-6 mb-2">
+        <div className="md:basis-1/2 flex flex-col items-center gap-6">
           <img
-            src={myPhoto}
+            src="/public/me.png"
             alt="Daniel Grounin"
             className="w-64 md:w-80 lg:w-96 object-cover rounded-lg insta-purple"
           />
@@ -45,7 +44,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Row */}
-      <div className="space-y-8 mb-2">
+      <div className="space-y-8">
         {/* Contact row */}
         <div className="flex justify-center gap-8 py-6">
           {/* Email */}
@@ -91,7 +90,7 @@ const HeroSection = () => {
       </div>
 
       {/* -------- scroll indicator -------- */}
-      <div className=" absolute bottom-18 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary" />
       </div>
