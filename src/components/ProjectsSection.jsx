@@ -9,8 +9,8 @@ const projects = [
 
     image: "/projects/project4.jpg",
     tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    demoUrl: "https://jobify-demo.example",
-    githubUrl: "https://github.com/your-username/jobify-mern",
+    demoUrl: "https://jobify-5f10.onrender.com",
+    githubUrl: "https://github.com/Daniel-Grounin/jobify",
   },
 
   {
