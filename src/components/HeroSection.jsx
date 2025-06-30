@@ -45,7 +45,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Row */}
-      <div className="space-y-8 mb-4">
+      <div className="space-y-8 mb-2">
         {/* Contact row */}
         <div className="flex justify-center gap-8 py-6">
           {/* Email */}
@@ -91,7 +91,7 @@ const HeroSection = () => {
       </div>
 
       {/* -------- scroll indicator -------- */}
-      <div className="absolute bottom-18 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce mb-8">
+      <div className=" absolute bottom-18 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary" />
       </div>
