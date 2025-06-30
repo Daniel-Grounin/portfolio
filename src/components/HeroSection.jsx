@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 mb-2"
     >
       {/* -------- hero content -------- */}
       <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center md:justify-between gap-10 z-10">
@@ -35,7 +35,7 @@ const HeroSection = () => {
         </div>
 
         {/* image block */}
-        <div className="md:basis-1/2 flex flex-col items-center gap-6 mt-10">
+        <div className="md:basis-1/2 flex flex-col items-center gap-6 mb-2">
           <img
             src={myPhoto}
             alt="Daniel Grounin"
@@ -45,7 +45,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contact Row */}
-      <div className="space-y-8 mt-8">
+      <div className="space-y-8 mb-4">
         {/* Contact row */}
         <div className="flex justify-center gap-8 py-6">
           {/* Email */}
@@ -91,7 +91,7 @@ const HeroSection = () => {
       </div>
 
       {/* -------- scroll indicator -------- */}
-      <div className=" absolute bottom-18 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
+      <div className="absolute bottom-18 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce mb-8">
         <span className="text-sm text-muted-foreground mb-2">Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary" />
       </div>
