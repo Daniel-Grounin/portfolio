@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "npm ci --legacy-peer-deps && vite build"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.14",
