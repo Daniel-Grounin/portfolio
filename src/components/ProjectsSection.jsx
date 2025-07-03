@@ -61,10 +61,9 @@ const projects = [
     title: "Portfolio",
     description: "Personal portfolio website built with React and Vite",
     image: "/projects/portfolio.jpg",
-    tags: ["React", "Node.js", "Vercel", "NameCheap domain"],
-    demoUrl:
-      "https://www.youtube.com/watch?v=nKfgezC9OUU&ab_channel=DanielGrounin",
-    githubUrl: "https://github.com/Daniel-Grounin/Spotify-Desktop-Widget",
+    tags: ["React", "Node.js", "TailwindCSS", "Vercel", "NameCheap domain"],
+    demoUrl: "https://www.danielgrounin.com/",
+    githubUrl: "https://github.com/Daniel-Grounin/portfolio",
   },
 ];
 
