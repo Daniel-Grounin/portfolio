@@ -11,6 +11,7 @@ const skills = [
   { name: "JavaScript", icon: "js", category: "languages" },
   { name: "C/C++", icon: "c++", category: "languages" },
   { name: "Bash", icon: "bash", category: "languages" },
+  { name: "C#", icon: "c#", category: "languages" },
 
   /* — Front-end — */
   { name: "HTML", icon: "html5", category: "frontend" },
@@ -25,6 +26,7 @@ const skills = [
   { name: "MongoDB", icon: "mongodb", category: "backend" },
   { name: "MySQL", icon: "mysql", category: "backend" },
   { name: "Firebase", icon: "firebase", category: "backend" },
+  { name: ".NET", icon: "net", category: "backend" },
 
   /* — Tools & Cloud — */
   { name: "Git / GitHub", icon: "git", category: "tools" },
