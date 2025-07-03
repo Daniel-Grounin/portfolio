@@ -11,24 +11,25 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
 
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ name, email, message }), // ✅ Just the values now
     });
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setIsSubmitting(false);
-    }, 1500);
-
-    res.ok ? alert("Message sent!") : alert("Something went wrong.");
+    if (res.ok) {
+      alert("Message sent!");
+      form.reset(); // optional: clear the form
+    } else {
+      alert("Something went wrong.");
+    }
   };
+
   return (
     <section
       id="contact"
@@ -107,7 +108,6 @@ const ContactSection = () => {
               </div>
 
               <button
-                onClick={handleSubmit}
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(

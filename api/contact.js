@@ -1,10 +1,6 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
 import nodemailer from "nodemailer";
 
-export default async function handler(
-  req = /** @type {VercelRequest} */ ({}),
-  res = /** @type {VercelResponse} */ ({})
-) {
+export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
   const { name, email, message } = req.body || {};
   if (!name || !email || !message) {
