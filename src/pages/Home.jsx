@@ -16,6 +16,7 @@ const Home = () => {
       <Navbar />
       {/* Main Content */}
       <main>
+        
         <HeroSection />
         <AboutSection />
         <SkillSection />
