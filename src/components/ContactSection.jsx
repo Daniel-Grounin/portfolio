@@ -11,6 +11,8 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setIsSubmitting(true);
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -19,14 +21,20 @@ const ContactSection = () => {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }), // ✅ Just the values now
+      body: JSON.stringify({ name, email, message }),
     });
 
     if (res.ok) {
-      alert("Message sent!");
-      form.reset(); // optional: clear the form
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      setIsSubmitting(false);
+      form.reset();
     } else {
-      alert("Something went wrong.");
+      toast({
+        title: "Something went wrong.",
+      });
     }
   };
 
