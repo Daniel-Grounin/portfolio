@@ -8,10 +8,16 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsSubmitting(true);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
 
     setTimeout(() => {
       toast({
@@ -20,6 +26,8 @@ const ContactSection = () => {
       });
       setIsSubmitting(false);
     }, 1500);
+
+    res.ok ? alert("Message sent!") : alert("Something went wrong.");
   };
   return (
     <section
