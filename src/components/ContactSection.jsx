@@ -107,6 +107,7 @@ const ContactSection = () => {
               </div>
 
               <button
+                onClick={handleSubmit}
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
