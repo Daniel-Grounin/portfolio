@@ -17,7 +17,7 @@ const projects = [
     title: "Leader Team Business Site",
     description: "Company website for NDT services, built with React and .NET",
     image: "/projects/lt-site-img.jpg",
-    tags: ["React", "Node.js", "C#", ".NET 9", "TailwindCSS"],
+    tags: ["React", "JS", "C#", ".NET 9", "EF", "SupaBase", "TailwindCSS"],
     demoUrl: "https://lt-site-seven.vercel.app/",
     githubUrl: "https://github.com/Daniel-Grounin/",
   },
