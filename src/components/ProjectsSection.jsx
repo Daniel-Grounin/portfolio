@@ -12,9 +12,17 @@ const projects = [
     demoUrl: "https://jobify-5f10.onrender.com",
     githubUrl: "https://github.com/Daniel-Grounin/jobify",
   },
-
   {
     id: 2,
+    title: "Leader Team Business Site",
+    description: "Company website for NDT services, built with React and .NET",
+    image: "/projects/lt-site-img.jpg",
+    tags: ["React", "Node.js", "C#", ".NET 9", "TailwindCSS"],
+    demoUrl: "https://lt-site-seven.vercel.app/",
+    githubUrl: "https://github.com/Daniel-Grounin/",
+  },
+  {
+    id: 3,
     title: "Drone Surveillance System",
     description:
       "Drone surveillance system designed to revolutionize the way we approach security and monitoring tasks.",
@@ -25,7 +33,16 @@ const projects = [
     githubUrl: "https://github.com/Daniel-Grounin/ZeusVision",
   },
   {
-    id: 3,
+    id: 7,
+    title: "Portfolio",
+    description: "Personal portfolio website built with React and Vite",
+    image: "/projects/portfolio.jpg",
+    tags: ["React", "Node.js", "TailwindCSS", "Vercel", "NameCheap domain"],
+    demoUrl: "https://www.danielgrounin.com/",
+    githubUrl: "https://github.com/Daniel-Grounin/portfolio",
+  },
+  {
+    id: 4,
     title: "IsraCamp",
     description:
       "Full-stack web application where users can discover, create, and review campgrounds.",
@@ -35,7 +52,7 @@ const projects = [
     githubUrl: "https://github.com/Daniel-Grounin/IsraCamp",
   },
   {
-    id: 4,
+    id: 5,
     title: "StarLinkEarth",
     description:
       "Interactive real-time visualization project that displays the movement of Starlink satellites around the Earth.",
@@ -46,7 +63,7 @@ const projects = [
     githubUrl: "https://github.com/Daniel-Grounin/StarLinkEarth",
   },
   {
-    id: 5,
+    id: 6,
     title: "[Mini-Project] Spotify-Desktop-Widget",
     description:
       "This project is a feature-rich Spotify Music Widget designed for Windows 10.",
@@ -55,15 +72,6 @@ const projects = [
     demoUrl:
       "https://www.youtube.com/watch?v=nKfgezC9OUU&ab_channel=DanielGrounin",
     githubUrl: "https://github.com/Daniel-Grounin/Spotify-Desktop-Widget",
-  },
-  {
-    id: 6,
-    title: "Portfolio",
-    description: "Personal portfolio website built with React and Vite",
-    image: "/projects/portfolio.jpg",
-    tags: ["React", "Node.js", "TailwindCSS", "Vercel", "NameCheap domain"],
-    demoUrl: "https://www.danielgrounin.com/",
-    githubUrl: "https://github.com/Daniel-Grounin/portfolio",
   },
 ];
 
