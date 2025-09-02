@@ -9,9 +9,11 @@ const skills = [
   { name: "Python", icon: "python", category: "languages" },
   { name: "Java", icon: "java", category: "languages" },
   { name: "JavaScript", icon: "js", category: "languages" },
+  { name: "TypeScript", icon: "typescript", category: "languages" },
   { name: "C/C++", icon: "c++", category: "languages" },
   { name: "Bash", icon: "bash", category: "languages" },
   { name: "C#", icon: "c#", category: "languages" },
+  { name: "PHP", icon: "php", category: "languages" },
 
   /* — Front-end — */
   { name: "HTML", icon: "html5", category: "frontend" },
@@ -19,20 +21,29 @@ const skills = [
   { name: "Tailwind CSS", icon: "tailwindcss", category: "frontend" },
   { name: "Bootstrap", icon: "bootstrap5", category: "frontend" },
   { name: "React", icon: "react", category: "frontend" },
+  { name: "MaterialUI", icon: "materialui", category: "frontend" },
 
   /* — Back-end — */
   { name: "Node.js", icon: "nodejs", category: "backend" },
-  { name: "Express.js", icon: "expressjs", category: "backend" },
+  { name: "Express.js", icon: "expressjs", category: "backend", variant: "dark" },
   { name: "MongoDB", icon: "mongodb", category: "backend" },
   { name: "MySQL", icon: "mysql", category: "backend" },
   { name: "Firebase", icon: "firebase", category: "backend" },
   { name: ".NET", icon: "net", category: "backend" },
+  { name: "Django", icon: "django", category: "backend" },
+  { name: "Flask", icon: "flask", category: "backend", variant: "dark" },
+
+  { name: "Mongoose", icon: "mongoose", category: "backend" },
+  { name: "Supabase", icon: "supabase", category: "backend" },
 
   /* — Tools & Cloud — */
   { name: "Git / GitHub", icon: "git", category: "tools" },
+  { name: "Apache", icon: "apache", category: "tools" },
   { name: "Jira", icon: "jira", category: "tools" },
   { name: "Docker", icon: "docker", category: "tools" },
   { name: "Google Cloud", icon: "gcloud", category: "tools" },
+  { name: "Figma", icon: "figma", category: "tools" },
+  { name: "Linux", icon: "linux", category: "tools" },
 ];
 
 /* ========= FILTER TABS ========= */
@@ -41,9 +52,7 @@ const categories = ["all", "languages", "frontend", "backend", "tools"];
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filtered = skills.filter(
-    (s) => activeCategory === "all" || s.category === activeCategory
-  );
+  const filtered = skills.filter((s) => activeCategory === "all" || s.category === activeCategory);
 
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
@@ -63,8 +72,7 @@ const SkillsSection = () => {
                 activeCategory === cat
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
-              )}
-            >
+              )}>
               {cat}
             </button>
           ))}
@@ -76,18 +84,19 @@ const SkillsSection = () => {
             <div
               key={skill.name}
               className="bg-card p-4 rounded-lg shadow-xs card-hover
-                         flex flex-col items-center gap-2 "
-            >
-              {/* icon or fallback initial */}
+                      flex flex-col items-center gap-2 ">
               {skill.icon ? (
-                <StackIcon name={skill.icon} size={30} />
+                <StackIcon
+                  name={skill.icon}
+                  size={30}
+                  {...(skill.variant ? { variant: skill.variant } : {})}
+                />
               ) : (
                 <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center">
                   <span className="text-sm font-medium">{skill.name[0]}</span>
                 </div>
               )}
 
-              {/* label */}
               <h3 className="text-center text-sm font-medium">{skill.name}</h3>
             </div>
           ))}
