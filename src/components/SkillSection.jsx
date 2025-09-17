@@ -32,7 +32,6 @@ const skills = [
   { name: ".NET", icon: "net", category: "backend" },
   { name: "Django", icon: "django", category: "backend" },
   { name: "Flask", icon: "flask", category: "backend", variant: "dark" },
-
   { name: "Mongoose", icon: "mongoose", category: "backend" },
   { name: "Supabase", icon: "supabase", category: "backend" },
 
