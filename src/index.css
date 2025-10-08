@@ -180,11 +180,20 @@
 }
 
 .insta-purple {
-  filter:               /* order matters */ grayscale(40%)
-    /* mute colours a bit first            */ sepia(100%)
-    /* give us warm base tones             */ saturate(500%)
-    /* crank saturation                    */ hue-rotate(220deg)
-    /* swing hues into purple/magenta      */ brightness(90%)
-    /* lift exposure                       */ contrast(100%); /* add a touch of punch                */
+  filter:               /* order matters */ grayscale(40%) /* mute colours a bit first            */ sepia(100%)
+    /* give us warm base tones             */ saturate(500%) /* crank saturation                    */ hue-rotate(220deg)
+    /* swing hues into purple/magenta      */ brightness(90%) /* lift exposure                       */ contrast(100%); /* add a touch of punch                */
   transition: filter 0.4s ease; /* smooth hover tweaks, optional */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
 }

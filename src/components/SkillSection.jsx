@@ -43,6 +43,7 @@ const skills = [
   { name: "Google Cloud", icon: "gcloud", category: "tools" },
   { name: "Figma", icon: "figma", category: "tools" },
   { name: "Linux", icon: "linux", category: "tools" },
+  { name: "OpenAI", icon: "openai", category: "tools", variant: "dark" },
 ];
 
 /* ========= FILTER TABS ========= */
@@ -68,9 +69,7 @@ const SkillsSection = () => {
               onClick={() => setActiveCategory(cat)}
               className={cn(
                 "px-3 py-1 rounded-full capitalize transition-colors",
-                activeCategory === cat
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
+                activeCategory === cat ? "bg-primary text-primary-foreground" : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}>
               {cat}
             </button>
@@ -78,25 +77,22 @@ const SkillsSection = () => {
         </div>
 
         {/* responsive grid */}
-        <div className="grid grid-cols-4 lg:grid-cols-6 gap-6 lg:mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-5 mx-auto">
           {filtered.map((skill) => (
             <div
               key={skill.name}
-              className="bg-card p-4 rounded-lg shadow-xs card-hover
-                      flex flex-col items-center gap-2 ">
+              className="bg-card p-3 rounded-lg shadow-xs card-hover
+                 flex flex-col items-center justify-center gap-1 text-center
+                 transition-transform hover:scale-[1.03]">
               {skill.icon ? (
-                <StackIcon
-                  name={skill.icon}
-                  size={30}
-                  {...(skill.variant ? { variant: skill.variant } : {})}
-                />
+                <StackIcon name={skill.icon} size={28} {...(skill.variant ? { variant: skill.variant } : {})} />
               ) : (
-                <div className="w-10 h-10 rounded bg-secondary flex items-center justify-center">
+                <div className="w-9 h-9 rounded bg-secondary flex items-center justify-center">
                   <span className="text-sm font-medium">{skill.name[0]}</span>
                 </div>
               )}
 
-              <h3 className="text-center text-sm font-medium">{skill.name}</h3>
+              <h3 className="text-xs sm:text-sm font-medium leading-tight text-foreground break-words max-w-[90%]">{skill.name}</h3>
             </div>
           ))}
         </div>

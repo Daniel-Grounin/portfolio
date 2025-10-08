@@ -1,11 +1,12 @@
+import { useState } from "react";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
     id: 1,
     title: "Jobify – Job Tracker",
-    description:
-      "Full-stack job tracker with JWT auth, CRUD jobs, filters, charts, and Render deploy.",
+    description: "Full-stack job tracker with JWT auth, CRUD jobs, filters, charts, and Render deploy.",
 
     image: "/projects/project4.jpg",
     tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
@@ -13,10 +14,19 @@ const projects = [
     githubUrl: "https://github.com/Daniel-Grounin/jobify",
   },
   {
+    id: 8,
+    title: "ZimrAI – AI Playlist Creator",
+    description: "An AI-powered playlist generator that creates personalized music playlists based on your mood or description.",
+
+    image: "/projects/zimrai.jpg",
+    tags: ["Python", "Flask", "Spotify API", "React", "MongoDB", "LLM Models"],
+    demoUrl: "https://www.youtube.com/watch?v=dqKdpMSIzbk",
+    githubUrl: "https://github.com/Daniel-Grounin/",
+  },
+  {
     id: 7,
     title: "Should I Move Here",
-    description:
-      "An interactive web app that helps users evaluate the quality of life in a neighborhood before moving.",
+    description: "An interactive web app that helps users evaluate the quality of life in a neighborhood before moving.",
 
     image: "/projects/should-i-move-here.jpg",
     tags: ["React", "Node.js", "Express", "Leaflet", "Geoapify API", "OpenStreetMap"],
@@ -35,8 +45,7 @@ const projects = [
   {
     id: 3,
     title: "Drone Surveillance System",
-    description:
-      "Drone surveillance system designed to revolutionize the way we approach security and monitoring tasks.",
+    description: "Drone surveillance system designed to revolutionize the way we approach security and monitoring tasks.",
     image: "/projects/project5.jpg",
     tags: ["Python", "Django", "YoloV8", "DJI MSDK"],
     demoUrl: "https://www.youtube.com/watch?v=LXfLGuXEXNU&ab_channel=DanielGrounin",
@@ -54,8 +63,7 @@ const projects = [
   {
     id: 4,
     title: "IsraCamp",
-    description:
-      "Full-stack web application where users can discover, create, and review campgrounds.",
+    description: "Full-stack web application where users can discover, create, and review campgrounds.",
     image: "/projects/isracamp1.jpg",
     tags: ["HTML5", "Node.js", "Express.js", "MongoDB"],
     demoUrl: "https://isracamp.onrender.com/",
@@ -64,8 +72,7 @@ const projects = [
   {
     id: 5,
     title: "StarLinkEarth",
-    description:
-      "Interactive real-time visualization project that displays the movement of Starlink satellites around the Earth.",
+    description: "Interactive real-time visualization project that displays the movement of Starlink satellites around the Earth.",
     image: "/projects/starlink.jpg",
     tags: ["C++", "OpenFrameworks", "Python", "sockets", "json"],
     demoUrl: "https://www.youtube.com/watch?v=qDQ7yQsSQH8&ab_channel=DanielGrounin",
@@ -83,6 +90,11 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (project) => setSelectedProject(project);
+  const closeModal = () => setSelectedProject(null);
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -94,8 +106,8 @@ const ProjectsSection = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover">
-              {/* image block */}
+              onClick={() => openModal(project)}
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover cursor-pointer transition-transform hover:scale-[1.02]">
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
@@ -104,14 +116,12 @@ const ProjectsSection = () => {
                 />
               </div>
 
-              {/* text block */}
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={`${project.id}-${tag}`}
-                      className="px-2 py-1 text-xs font-medium border rounded-full
-                               bg-secondary text-secondary-foreground">
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
                       {tag}
                     </span>
                   ))}
@@ -125,14 +135,17 @@ const ProjectsSection = () => {
                     href={project.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    onClick={(e) => e.stopPropagation()} // prevent modal open on link click
+                  >
                     <ExternalLink size={20} />
                   </a>
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    onClick={(e) => e.stopPropagation()}>
                     <Github size={20} />
                   </a>
                 </div>
@@ -141,7 +154,6 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* footer button */}
         <div className="text-center mt-12">
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
@@ -152,7 +164,10 @@ const ProjectsSection = () => {
           </a>
         </div>
       </div>
+
+      {selectedProject && <ProjectModal project={selectedProject} onClose={closeModal} />}
     </section>
   );
 };
+
 export default ProjectsSection;
