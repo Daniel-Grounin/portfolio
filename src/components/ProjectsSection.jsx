@@ -4,16 +4,6 @@ import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
-    id: 1,
-    title: "Jobify – Job Tracker",
-    description: "Full-stack job tracker with JWT auth, CRUD jobs, filters, charts, and Render deploy.",
-
-    image: "/projects/project4.jpg",
-    tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    demoUrl: "https://jobify-5f10.onrender.com",
-    githubUrl: "https://github.com/Daniel-Grounin/jobify",
-  },
-  {
     id: 8,
     title: "ZimrAI – AI Playlist Creator",
     description: "An AI-powered playlist generator that creates personalized music playlists based on your mood or description.",
@@ -21,6 +11,25 @@ const projects = [
     image: "/projects/zimrai.jpg",
     tags: ["Python", "Flask", "Spotify API", "React", "MongoDB", "LLM Models"],
     demoUrl: "https://www.youtube.com/watch?v=dqKdpMSIzbk",
+    githubUrl: "https://github.com/Daniel-Grounin/",
+  },
+
+  {
+    id: 3,
+    title: "AI Drone Surveillance",
+    description: "Drone surveillance system designed to revolutionize the way we approach security and monitoring tasks.",
+    image: "/projects/zeusvision.jpg",
+    tags: ["Python", "Django", "Real Time", "Object Detection", "DJI MSDK"],
+    demoUrl: "https://www.youtube.com/watch?v=LXfLGuXEXNU&ab_channel=DanielGrounin",
+    githubUrl: "https://github.com/Daniel-Grounin/ZeusVision",
+  },
+  {
+    id: 2,
+    title: "Leader Team Business Site",
+    description: "Company website for NDT services, built with React and .NET",
+    image: "/projects/lt-site-img.jpg",
+    tags: ["React", "JS", "C#", ".NET 9", "EF", "SupaBase", "TailwindCSS"],
+    demoUrl: "https://lt-site-seven.vercel.app/",
     githubUrl: "https://github.com/Daniel-Grounin/",
   },
   {
@@ -33,24 +42,18 @@ const projects = [
     demoUrl: "https://should-i-move-here-1.onrender.com/",
     githubUrl: "https://github.com/Daniel-Grounin/",
   },
+
   {
-    id: 2,
-    title: "Leader Team Business Site",
-    description: "Company website for NDT services, built with React and .NET",
-    image: "/projects/lt-site-img.jpg",
-    tags: ["React", "JS", "C#", ".NET 9", "EF", "SupaBase", "TailwindCSS"],
-    demoUrl: "https://lt-site-seven.vercel.app/",
-    githubUrl: "https://github.com/Daniel-Grounin/",
+    id: 1,
+    title: "Jobify – Job Tracker",
+    description: "Full-stack job tracker with JWT auth, CRUD jobs, filters, charts, and Render deploy.",
+
+    image: "/projects/project4.jpg",
+    tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    demoUrl: "https://jobify-5f10.onrender.com",
+    githubUrl: "https://github.com/Daniel-Grounin/jobify",
   },
-  {
-    id: 3,
-    title: "Drone Surveillance System",
-    description: "Drone surveillance system designed to revolutionize the way we approach security and monitoring tasks.",
-    image: "/projects/project5.jpg",
-    tags: ["Python", "Django", "YoloV8", "DJI MSDK"],
-    demoUrl: "https://www.youtube.com/watch?v=LXfLGuXEXNU&ab_channel=DanielGrounin",
-    githubUrl: "https://github.com/Daniel-Grounin/ZeusVision",
-  },
+
   {
     id: 7,
     title: "Portfolio",
