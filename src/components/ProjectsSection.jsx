@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 
 const projects = [
+  // projects
   {
     id: 8,
     title: "ZimrAI – AI Playlist Creator",
