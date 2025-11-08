@@ -1,21 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,1000;1,9..40,1000&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Condensed+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap");
-
 @import "tailwindcss";
 
 @theme {
-  --font-dm: "DM Sans", sans-serif;
-  --font-montserrat: "Montserrat", sans-serif;
-  --font-merriweather: "Merriweather Sans", sans-serif;
-  --font-assistant: "Assistant", sans-serif;
-  --font-hebrew: "Rubik", sans-serif;
-
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
+
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+
   --color-card: hsl(var(--card));
 
   --animate-float: float 6s ease-in-out infinite;
@@ -36,7 +28,6 @@
       transform: translateY(-10px);
     }
   }
-
   @keyframes pulse-subtle {
     0%,
     100% {
@@ -46,7 +37,6 @@
       opacity: 0.8;
     }
   }
-
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -57,7 +47,6 @@
       transform: translateY(0);
     }
   }
-
   @keyframes meteor {
     0% {
       transform: rotate(215deg) translateX(0);
@@ -75,33 +64,43 @@
 
 @layer base {
   :root {
-    /* 🎨 פלטת צבעים רכה ומעוצבת */
-    --background: 310 45% 98%; /* ורוד קרמי בהיר */
-    --foreground: 259 34% 18%; /* סגול כהה לקריאות */
-    --card: 0 0% 100%; /* לבן נקי */
-    --primary: 320 70% 65%; /* ורוד רוזי */
-    --primary-foreground: 0 0% 100%; /* לבן על הכפתור */
-    --border: 310 30% 90%; /* גבול ורדרד עדין */
-    --secondary: 270 40% 96%; /* סגול בהיר */
-    --accent: 38 90% 72%; /* אפרסק עדין */
+    /* existing theme vars… */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --primary: 250 47% 60%;
+    --primary-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
 
+    /* NEW → star/meteor color in light mode (black) */
     --star-rgb: 0 0 0;
     --meteor-rgb: 0 0 0;
   }
 
   .dark {
-    /* 🌙 מצב כהה */
-    --background: 264 45% 7%;
-    --foreground: 0 0% 100%;
-    --card: 264 45% 9%;
-    --primary: 320 70% 70%;
-    --primary-foreground: 0 0% 100%;
-    --border: 264 35% 18%;
-    --secondary: 264 30% 12%;
-    --accent: 38 90% 72%;
+    /* existing theme vars… */
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+    --card: 222 47% 8%;
+    --primary: 250 65% 65%;
+    --primary-foreground: 213 31% 91%;
+    --border: 217 33% 20%;
 
+    /* NEW → star/meteor color in dark mode (white) */
     --star-rgb: 255 255 255;
     --meteor-rgb: 255 255 255;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 8%;
+
+    --primary: 250 65% 65%;
+    --primary-foreground: 213 31% 91%;
+
+    --border: 217 33% 20%;
   }
 
   * {
@@ -139,10 +138,9 @@
   }
 }
 
-/* ✨ Utility classes */
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba(255, 160, 200, 0.5);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
 }
 
 @utility card-hover {
@@ -156,20 +154,12 @@
   border: 1px solid transparent;
 }
 
-/* 💗 כפתור ורדרד עם אנרגיה יצירתית */
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
-         transition-all duration-300 hover:shadow-[0_10px_25px_rgba(255,127,179,0.35)]
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
 }
 
-/* 🌸 רקע רך לסקשנים */
-.section-soft {
-  background: radial-gradient(circle at top, rgba(255, 203, 219, 0.25), transparent 50%),
-    linear-gradient(180deg, rgba(245, 239, 255, 0.4), rgba(255, 255, 255, 0));
-}
-
-/* ✴️ כוכבים ומטאורים */
 @utility star {
   @apply absolute rounded-full;
   background: rgb(var(--star-rgb));
@@ -182,7 +172,6 @@
   box-shadow: 0 0 10px 5px rgba(var(--meteor-rgb) / 0.3);
 }
 
-/* ✨ עיצוב בסיסי */
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -190,13 +179,13 @@
   text-align: center;
 }
 
-/* 🎀 פילטר אינסטגרם */
 .insta-purple {
-  filter: grayscale(40%) sepia(100%) saturate(500%) hue-rotate(220deg) brightness(90%) contrast(100%);
-  transition: filter 0.4s ease;
+  filter:               /* order matters */ grayscale(40%) /* mute colours a bit first            */ sepia(100%)
+    /* give us warm base tones             */ saturate(500%) /* crank saturation                    */ hue-rotate(220deg)
+    /* swing hues into purple/magenta      */ brightness(90%) /* lift exposure                       */ contrast(100%); /* add a touch of punch                */
+  transition: filter 0.4s ease; /* smooth hover tweaks, optional */
 }
 
-/* 🌈 אנימציות */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -205,38 +194,6 @@
     opacity: 1;
   }
 }
-
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
-}
-
-/* ************************ SPARKLE ********************** */
-
-@utility sparkle {
-  @apply absolute rounded-full;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 70%);
-  /* מסגרת ממש עדינה בורוד */
-  box-shadow: 0 0 12px rgba(255, 160, 200, 0.55);
-  animation-name: sparklePulse;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-/* אנימציה של הברקה קצרה */
-@keyframes sparklePulse {
-  0% {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-  25% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(0.4);
-    opacity: 0;
-  }
 }

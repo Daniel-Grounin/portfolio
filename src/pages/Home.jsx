@@ -6,21 +6,21 @@ import SkillSection from "../components/SkillSection";
 import ProjectsSection from "../components/ProjectsSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
-import SparkleBackground from "../components/SparkleBackground";
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Background Effects */}
-      <SparkleBackground />
+      <StarBackground />
       {/* Navbar */}
       <Navbar />
       {/* Main Content */}
       <main>
+        
         <HeroSection />
-        <ProjectsSection />
         <AboutSection />
         <SkillSection />
+        <ProjectsSection />
         <ContactSection />
       </main>
       {/* Footer */}
