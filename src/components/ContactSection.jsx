@@ -1,5 +1,4 @@
-import { Send } from "lucide-react";
-
+import { Send, Instagram, Mail, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -10,7 +9,6 @@ const ContactSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
     const form = e.target;
@@ -26,51 +24,43 @@ const ContactSection = () => {
 
     if (res.ok) {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "ההודעה נשלחה ✔",
+        description: "תודה שפניתם! אחזור אליכם בהקדם.",
       });
       setIsSubmitting(false);
       form.reset();
     } else {
       toast({
-        title: "Something went wrong.",
+        title: "משהו השתבש...",
+        description: "נסו שוב או צרו קשר באינסטגרם.",
       });
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="relative bg-secondary/30 h-screen flex items-center"
-    >
+    <section id="contact" dir="rtl" className="relative bg-secondary/30 min-h-screen flex items-center font-hebrew">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
+          בואו <span className="text-primary">נדבר</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Curious about new opportunities and always up for a great discussion.
+          עובדים על מיתוג? צריך צילום? רוצים תוכן לאינסטגרם?
           <br />
-          Let’s connect and create something awesome.
+          מוזמנים להשאיר פרטים ואני אחזור אליכם.
         </p>
 
         <div className="grid grid-cols gap-10 text-center">
           <div
-            /* full-width on small/med → capped & centred on large screens */
             className="bg-card p-8 rounded-lg shadow-xs
-               w-full lg:max-w-md lg:mx-auto"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+               w-full lg:max-w-md lg:mx-auto">
+            <h3 className="text-2xl font-semibold mb-6">שליחת הודעה</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Name
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  שם מלא
                 </label>
                 <input
                   type="text"
@@ -82,12 +72,8 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Email
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  אימייל
                 </label>
                 <input
                   type="email"
@@ -99,37 +85,54 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Message
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  הודעה
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  placeholder="היי אולגה, אני צריך צילום/תוכן עבור..."
+                  rows={4}
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
+              <button type="submit" disabled={isSubmitting} className={cn("cosmic-button w-full flex items-center justify-center gap-2")}>
+                {isSubmitting ? "שולחת..." : "שליחה"}
                 <Send size={16} />
               </button>
             </form>
+
+            {/* אייקונים חברתיים */}
+            <div className="flex justify-center gap-6 mt-8">
+              <a
+                href="https://www.instagram.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition"
+                aria-label="Instagram">
+                <Instagram size={28} />
+              </a>
+
+              <a
+                href="https://wa.me/972501234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition"
+                aria-label="WhatsApp">
+                <MessageCircle size={28} />
+              </a>
+
+              <a href="mailto:youremail@example.com" className="text-muted-foreground hover:text-primary transition" aria-label="Email">
+                <Mail size={28} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default ContactSection;

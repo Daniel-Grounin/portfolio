@@ -1,98 +1,118 @@
 import { useState } from "react";
-import StackIcon from "tech-stack-icons";
 import { cn } from "@/lib/utils";
 
-/* ---------- data ---------- */
-/* ========= SKILLS DATA ========= */
+// מותגים
+import {
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiAdobeindesign,
+  SiAdobelightroom,
+  SiAdobepremierepro,
+  SiAdobeaftereffects,
+  SiFigma,
+  SiCanva,
+  SiInstagram,
+  SiTiktok,
+  SiFacebook,
+  SiLinkedin,
+} from "react-icons/si";
+
+// צילום / עיצוב
+import { TbPhoto, TbPhotoEdit, TbColorSwatch } from "react-icons/tb";
+
+// כללי / עסקי
+import { FaChartLine, FaFeatherAlt, FaUserTie, FaFolderOpen } from "react-icons/fa";
+import { MdOutlineCampaign } from "react-icons/md";
+import { LuWorkflow } from "react-icons/lu";
+
+/* ========= SKILLS ========= */
 const skills = [
-  /* — Languages (Programming) — */
-  { name: "Python", icon: "python", category: "languages" },
-  { name: "Java", icon: "java", category: "languages" },
-  { name: "JavaScript", icon: "js", category: "languages" },
-  { name: "TypeScript", icon: "typescript", category: "languages" },
-  { name: "C/C++", icon: "c++", category: "languages" },
-  { name: "Bash", icon: "bash", category: "languages" },
-  { name: "C#", icon: "c#", category: "languages" },
-  { name: "PHP", icon: "php", category: "languages" },
+  // — עיצוב גרפי —
+  { name: "Adobe Photoshop", icon: SiAdobephotoshop, category: "design" },
+  { name: "Adobe Illustrator", icon: SiAdobeillustrator, category: "design" },
+  { name: "Adobe InDesign", icon: SiAdobeindesign, category: "design" },
+  { name: "Figma", icon: SiFigma, category: "design" },
+  { name: "Canva", icon: SiCanva, category: "design" },
+  { name: "Color Theory", icon: TbColorSwatch, category: "design" },
 
-  /* — Front-end — */
-  { name: "HTML", icon: "html5", category: "frontend" },
-  { name: "CSS", icon: "css3", category: "frontend" },
-  { name: "Tailwind CSS", icon: "tailwindcss", category: "frontend" },
-  { name: "Bootstrap", icon: "bootstrap5", category: "frontend" },
-  { name: "React", icon: "react", category: "frontend" },
-  { name: "MaterialUI", icon: "materialui", category: "frontend" },
+  // — צילום ועריכה —
+  { name: "Lightroom", icon: SiAdobelightroom, category: "photo-video" },
+  { name: "Premiere Pro", icon: SiAdobepremierepro, category: "photo-video" },
+  { name: "After Effects", icon: SiAdobeaftereffects, category: "photo-video" },
+  { name: "צילום סטודיו", icon: TbPhoto, category: "photo-video" },
+  { name: "צילום מוצר", icon: TbPhotoEdit, category: "photo-video" },
+  { name: "Video Editing", icon: SiAdobepremierepro, category: "photo-video" },
 
-  /* — Back-end — */
-  { name: "Node.js", icon: "nodejs", category: "backend" },
-  { name: "Express.js", icon: "expressjs", category: "backend", variant: "dark" },
-  { name: "MongoDB", icon: "mongodb", category: "backend" },
-  { name: "MySQL", icon: "mysql", category: "backend" },
-  { name: "Firebase", icon: "firebase", category: "backend" },
-  { name: ".NET", icon: "net", category: "backend" },
-  { name: "Django", icon: "django", category: "backend" },
-  { name: "Flask", icon: "flask", category: "backend", variant: "dark" },
-  { name: "Mongoose", icon: "mongoose", category: "backend" },
-  { name: "Supabase", icon: "supabase", category: "backend" },
+  // — מדיה חברתית —
+  { name: "Instagram", icon: SiInstagram, category: "social" },
+  { name: "TikTok", icon: SiTiktok, category: "social" },
+  { name: "Facebook", icon: SiFacebook, category: "social" },
+  { name: "LinkedIn", icon: SiLinkedin, category: "social" },
+  { name: "Social Media Strategy", icon: FaChartLine, category: "social" },
 
-  /* — Tools & Cloud — */
-  { name: "Git / GitHub", icon: "git", category: "tools" },
-  { name: "Apache", icon: "apache", category: "tools" },
-  { name: "Jira", icon: "jira", category: "tools" },
-  { name: "Docker", icon: "docker", category: "tools" },
-  { name: "Google Cloud", icon: "gcloud", category: "tools" },
-  { name: "Figma", icon: "figma", category: "tools" },
-  { name: "Linux", icon: "linux", category: "tools" },
-  { name: "OpenAI", icon: "openai", category: "tools", variant: "dark" },
+  // — ניהול עסק —
+  { name: "Client Relations", icon: FaUserTie, category: "business" },
+  { name: "Business Branding", icon: FaFolderOpen, category: "business" },
 ];
 
-/* ========= FILTER TABS ========= */
-const categories = ["all", "languages", "frontend", "backend", "tools"];
+/* ========= FILTERS ========= */
+const categories = [
+  { label: "הכל", value: "all" },
+  { label: "עיצוב", value: "design" },
+  { label: "צילום / וידאו", value: "photo-video" },
+  { label: "מדיה חברתית", value: "social" },
+  { label: "ניהול עסק", value: "business" },
+];
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const filtered = skills.filter((s) => activeCategory === "all" || s.category === activeCategory);
+  const filtered = activeCategory === "all" ? skills : skills.filter((s) => s.category === activeCategory);
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" dir="rtl" className="py-24 px-4 relative bg-secondary/30 font-hebrew">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary">Skills</span>
-        </h2>
+        {/* כותרת */}
+        <div className="text-center mb-10 space-y-3">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            כלים ו<span className="text-primary">יכולות</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            כל התוכנות והכלים שאני עובדת איתם ביום-יום — מהאדובי ועד לניהול קמפיינים.
+          </p>
+        </div>
 
-        {/* filter pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* פילטרים */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={cat.value}
+              onClick={() => setActiveCategory(cat.value)}
               className={cn(
-                "px-3 py-1 rounded-full capitalize transition-colors",
-                activeCategory === cat ? "bg-primary text-primary-foreground" : "bg-secondary/70 text-foreground hover:bg-secondary"
+                "px-4 py-1.5 rounded-full text-sm transition-all border",
+                activeCategory === cat.value
+                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                  : "bg-background/40 text-foreground border-transparent hover:bg-background/70"
               )}>
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>
 
-        {/* responsive grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 lg:gap-5 mx-auto">
+        {/* גריד */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 mx-auto">
           {filtered.map((skill) => (
             <div
               key={skill.name}
-              className="bg-card p-3 rounded-lg shadow-xs card-hover
-                 flex flex-col items-center justify-center gap-1 text-center
-                 transition-transform hover:scale-[1.03]">
+              className="bg-card/80 backdrop-blur-sm border border-white/5 rounded-xl p-4 flex flex-col items-center justify-center gap-2 text-center transition-transform hover:scale-[1.05]">
               {skill.icon ? (
-                <StackIcon name={skill.icon} size={28} {...(skill.variant ? { variant: skill.variant } : {})} />
+                <skill.icon className="w-7 h-7 text-primary mb-1" />
               ) : (
                 <div className="w-9 h-9 rounded bg-secondary flex items-center justify-center">
                   <span className="text-sm font-medium">{skill.name[0]}</span>
                 </div>
               )}
-
-              <h3 className="text-xs sm:text-sm font-medium leading-tight text-foreground break-words max-w-[90%]">{skill.name}</h3>
+              <h3 className="text-xs sm:text-sm font-medium leading-tight text-foreground break-words max-w-[95%]">{skill.name}</h3>
             </div>
           ))}
         </div>
